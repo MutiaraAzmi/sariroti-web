@@ -2,6 +2,19 @@ import { HERO_DATA } from './constants/hero-page.js';
 import { CAKES_DATA } from './constants/cakes-page.js';
 import { BAKERY_DATA } from './constants/bakery-page.js';
 
+let currentSlide = 0;
+
+const slides = document.querySelector('.ad-slider');
+const totalSlides = document.querySelectorAll('.ad-slide').length;
+
+function showNextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    const offset = -currentSlide * 100;
+    slides.style.transform = `translateX(${offset}%)`;
+}
+
+setInterval(showNextSlide, 3000);
+
 document.addEventListener("DOMContentLoaded", () => {
 
 const data = ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5", "Slide 6", "Slide 7", "Slide 8", "Slide 9"];
