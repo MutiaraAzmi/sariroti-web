@@ -16,22 +16,22 @@
             </a>
             <div class="navbar-menu">
                 <div class="menu-link">
-                    <a href="#about">
+                    <a href="#">
                         Home
                     </a>
                 </div>
                 <div class="menu-link">
-                    <a href="#bakery">
+                    <a href="#about">
                         About us
                     </a>
                 </div>
                 <div class="menu-link">
-                    <a href="#cakes">
+                    <a href="#product">
                         Product
                     </a>
                 </div>
                 <div class="menu-link">
-                    <a href="#outlets">
+                    <a href="#contact">
                         Contact
                     </a>
                 </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="hero-roti">
-                <a href="#">
+                <a href="#about">
                     <img class="hero-image" src="images/hero-image.png" alt="">
                 </a>
             </div>
@@ -83,7 +83,7 @@
                 <img class="title-image" src="images/SARI ROTI.png" alt="">
             </div>
         </div>
-        <div class="about">
+        <div id="about" class="about">
             <div style="background-color: #F7ECD6;" class="about-story">
                 <h1 class="about-title">
                     1995-2001
@@ -156,89 +156,119 @@
                 <img src="images/ad-image.png" height="360" alt="">
             </div>
         </div>
-        <div></div>
-        <div id="bakery" class="bakery-container">
-            <h1 class="bakery-title">
-                B A K E R Y
-            </h1>
-            <div class="slideshow-container-bakery">
-                <div class="slides-bakery"></div>
-                <button class="prev-bakery" onclick="changeSlide(-1)">
-                    <img class="markdown-image" src="images/markleft-green.png" alt="">
-                </button>
-                <button class="next-bakery" onclick="changeSlide(1)">
-                    <img class="markdown-image" src="images/markright-green.png" alt="">
-                </button>
+        <div id="product" class="product-container">
+            <div class="product-menus">
+                <div onclick="showContent('content1')" style="background-color: #0044F1; cursor: pointer;" class="product-menu blue">
+                    Roti
+                </div>
+                <div onclick="showContent('content2')" style="background-color: #FDC550; cursor: pointer; color: black;" class="product-menu yellow">
+                    Kue
+                </div>
+                <div onclick="showContent('content3')" style="background-color: #0044F1; cursor: pointer;" class="product-menu blue">
+                    Susu
+                </div>
+                <div onclick="showContent('content4')" style="background-color: #FDC550; cursor: pointer; color: black;" class="product-menu yellow">
+                    Selai
+                </div>
+            </div>
+            <div class="products" id="display-container">
+                <div id="content1" class="content">
+                    <div class="slideshow-container-roti">
+                        <div class="slides-roti"></div>
+                        <button class="prev-roti" onclick="changeSlideBakery(-1)">
+                            <img class="markdown-image" src="images/markleft.png" alt="">
+                        </button>
+                        <button class="next-roti" onclick="changeSlideBakery(1)">
+                            <img class="markdown-image" src="images/markright.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div id="content2" class="content" style="display:none;">
+                    <div class="slideshow-container">
+                        <div class="slides"></div>
+                        <button class="prev" onclick="changeSlide(-1)">
+                            <img class="markdown-image" src="images/markleft.png" alt="">
+                        </button>
+                        <button class="next" onclick="changeSlide(1)">
+                            <img class="markdown-image" src="images/markright.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div id="content3" class="content" style="display:none;">
+                    <div class="slideshow-container">
+                        <div class="slides">
+                            <div class="slide">
+                                <div class="slide-desc">
+                                    <h1 class="slide-title">Sari Choco Milk</h1>
+                                    <p class="slide-detail">Susu Sehat dengan rasa cokelat yang nikmat dengan gula lebih rendah sebagai pilihan sehat untuk anak. Sari Choco Milk, Enak Cokelatnya, semua suka!</p>
+                                    </div>
+                                    <img src="images/susu/sari-choco-milk.png" class="slide-img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="content4" class="content" style="display:none;">
+                    <div class="slideshow-container">
+                        <div class="slides">
+                            <div class="slide">
+                                <div class="slide-desc">
+                                    <h1 class="slide-title">Sari Choco Spread Hazelnut Crunchy</h1>
+                                    <p class="slide-detail">Produk Seai dari Sari Roti dengan Rasa Cokelat Hazelnut yang super lezat dan tekstur crunchy dan Lembut, mudah di oleskan pada Roti dan dikreasikan menjadi makanan favorit keluarga Anda. Sari Choco Spread, Selai Cokelatnya Semua Suka!</p>
+                                    </div>
+                                    <img src="images/selai/sari-choco-spread-hazelnut-crunchy.png" class="slide-img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="content5" class="infinite-slider content">
+                    <div class="slider-text">
+                        <div>
+                            Our Product
+                            <img src="images/star.png" height="60">
+                        </div>
+                        <div>
+                            Our Product
+                            <img src="images/star.png" height="60">
+                        </div>
+                    </div>
+                    <div class="slider-text">
+                        <div>
+                            Our Product
+                            <img src="images/star.png" height="60">
+                        </div>
+                        <div>
+                            Our Product
+                            <img src="images/star.png" height="60">
+                        </div>  
+                    </div> 
+                </div>
             </div>
         </div>
-        <div id="cakes" class="cakes-container">
-            <h1 class="cakes-title">
-                C A K E S
-            </h1>
-            <div class="slideshow-container">
-                <div class="slides"></div>
-                <button class="prev" onclick="changeSlide(-1)">
-                    <img class="markdown-image" src="images/markleft.png" alt="">
-                </button>
-                <button class="next" onclick="changeSlide(1)">
-                    <img class="markdown-image" src="images/markright.png" alt="">
-                </button>
-            </div>
-        </div>
-        <div id="outlets" class="outlets-container">
-            <div class="outlets-check">
-                <div class="outlets-text">
-                    check out our outlets
+        <div id="contact" class="feedback-container">
+            <div class="dropdown-container">
+                <div style="position: absolute; z-index: 10;">
+                    Kebutuhan Anda:
                 </div>
-                <div class="outlets-text">
-                    check out our outlets
+                <div class="dropdown">
+                    <button class="dropbtn">Silahkan Pilih &#9660;</button>
+                    <div class="dropdown-content">
+                        <a href="#">Umpan Balik Produk</a>
+                        <a href="#">Mitra Usaha</a>
+                        <a href="#">Kunjungan Pabrik</a>
+                        <a href="#">Media dan Publikasi</a>
+                        <a href="#">Lainnya</a>
+                    </div>
                 </div>
             </div>
-            <div class="outlets">
-                <div class="outlet">
-                    <p>
-                        Komplek Perum Taman Cibodas Jl. Raya Taman Cibodas Blok A3 No.20, Tangerang Kota  (021) 553-5034
-                    </p>
-                    <p>
-                        Ruko Cira Raya Blok F1 No. 25, Tangerang  (021) 9175-2358
-                    </p>
-                    <p>
-                        Jl. Gatot Subroto KM 2,5 No.5, Tangerang  (021) 5576-8898
-                    </p>
+            <div class="feedback-text">
+                <div>
+                    Untuk mengirim kontak kepada kami silahkan memilih kebutuhan anda melalui tombol diatas.
                 </div>
-                <div class="outlet">
-                    <p>
-                        Jl. Gatot Subroto KM 4,5 No. 8, Periuk, Tangerang  (021) 9629-5736
-                    </p>
-                    <p>
-                        Jl. Raya Serang KM 24 Balaraja, Tangerang  (021) 595-4627
-                    </p>
-                    <p>
-                        Rest Area Palm Square No. A1, Jl. Tol Jakarta, Merak KM 13,5  (021) 9627-3263
-                    </p>
-                </div>
-                <div class="outlet">
-                    <p>
-                        Jl. Raya Haparan Kita Blok C3 No.2, Tangerang Karawaci  (021) 5919-723
-                    </p>
-                    <p>
-                        Ruko Poris Paradise Blok C2 No.33, Tangerang  (021) 9566-7985
-                    </p>
-                    <p>
-                        Ruko Permata Tangerang Blok BD2 No. 21-23, Gelam Jaya, Pasar Kemis, Tangerang  (021) 9627-2518
-                    </p>
-                </div>
-                <div class="outlet">
-                    <p>
-                        Ruko Glaze 2 Blok B No. 25, Paramount Gading Serpong, Tangerang  (021) 988-41598
-                    </p>
-                    <p>
-                        Ruko Darwin No.66 Jl. Scientia Boulevard Utara, Summarecon Gading Serpong, Tangerang (021)
-                        9808-9038
-                    </p>
+                <div>
+                    Dapat mengirim kontak form untuk Umpan Balik Produk, Mitra Usaha, Kunjungan Pabrik, Media dan Publikasi, Lainnya
                 </div>
             </div>
-        </div>
+        </div>        
         <footer class="footer">
             <div class="contact">
                 <h4>
@@ -255,20 +285,48 @@
                         Social Media
                     </h4>
                     <div>
-                        <a href="#">Facebook</a>
-                        <a href="#">Instagram</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Youtube</a>
+                        <div class="footer-link">
+                            <a href="#">Facebook</a>
+                        </div>
+                        <div class="footer-link">
+                            <a href="#">Instagram</a>
+                        </div>
+                        <div class="footer-link">
+                            <a href="#">LinkedIn</a>
+                        </div>
+                        <div class="footer-link">
+                            <a href="#">Youtube</a>
+                        </div>
                     </div>
                 </div>
                 <div>
                     <h4>
                         Company
                     </h4>
-                    <p>
-                        +1234 5678 9012
-                    </p>
-                    <p>SariRoti@gmail.com</p>
+                    <div>
+                        <div class="footer-link">
+                            <a href="#">News</a>
+                        </div>
+                        <div class="footer-link">
+                            <a href="#">Update</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4>
+                        Terms & Policy
+                    </h4>
+                    <div>
+                        <div class="footer-link">
+                            <a href="#">Privacy Policy</a>
+                        </div>
+                        <div class="footer-link">
+                            <a href="#">Terms of use</a>
+                        </div>
+                        <div class="footer-link">
+                            <a href="#">Accessibility</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

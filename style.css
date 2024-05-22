@@ -134,6 +134,51 @@ html {
 
 .hero-image {
   height: 400px;
+  animation: hero-heart;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.menu {
+  margin: 20px;
+}
+
+.menu button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.display-container {
+  margin-top: 20px;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+@keyframes hero-heart {
+  0% {
+      height: 400px;
+  }
+
+  50% {
+      height: 500px;
+  }
+
+  100% {
+      height: 400px;
+  }
 }
 
 .hero-top-content {
@@ -247,39 +292,60 @@ html {
   color: white;
 }
 
-.markdown-container {
-  position: relative;
+.product-container {
+
+}
+
+.product-menus {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.product-menu {
+  width: 100%;
+  height: 371px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  animation: markdown;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
+  font-size: 190px;
+  font-weight: 400;
+  font-family: tulpen;
+  color: white;
 }
 
-@keyframes markdown {
-  0% {
-    bottom: 30px;
-  }
-
-  50% {
-    bottom: 20px;
-  }
-
-  100% {
-    bottom: 30px;
-  }
+.products {
+  background-color: #fcf8f0;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
-.markdown {
-  background-color: #94b491;
-  height: 20px;
-  padding: 16px;
-  border-radius: 100%;
+.infinite-slider {
+  background-color: #fcf8f0;
   display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  gap: 20px;
 }
 
-.markdown-image {
-  margin: auto;
+.slider-text {
+  width: auto;
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  min-width: 100%;
+  gap: 20px;
+  flex-shrink: 0;
+  scroll-snap-type: x var(--tw-scroll-snap-strictness);
+  --tw-scroll-snap-strictness: mandatory;
+  animation: infiniteSlider;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  font-size: 96px;
+  font-weight: 600;
+  font-style: italic;
 }
 
 .bakery-container {
@@ -367,8 +433,12 @@ html {
   }
 
   100% {
-    transform: translate(calc(-100% - 50px));
-  }
+    transform: translate(calc(-100% - 20px));
+    -webkit-transform: translate(calc(-100% - 20px));
+    -moz-transform: translate(calc(-100% - 20px));
+    -ms-transform: translate(calc(-100% - 20px));
+    -o-transform: translate(calc(-100% - 20px));
+}
 }
 
 a {
@@ -393,16 +463,107 @@ a:hover {
 
 .footer-menu {
   display: flex;
-  gap: 20px
+  gap: 50px
 }
 
 .contact {
   color: white;
 }
 
+.feedback-container {
+  background-color: #0044f1;
+  color: white;
+  padding: 40px;
+  padding-bottom: 150px;
+}
+
+.feedback-text {
+  padding-top: 20px;
+  width: 512px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dropdown-container {
+  width: 832px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: white solid 2px;
+  box-sizing: border-box; /* Make sure padding is included in width */
+}
+
+.dropbtn {
+  background-color: #0044f1;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: right;
+  position: relative;
+}
+
+.dropdown {
+  position: relative;
+  width: calc(100%); /* Specify a width for the dropdown button */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  background-color: #f9f9f9;
+  width: calc(100% + 40px); /* Make dropdown-content the same width as container */
+  left: -20px; /* Adjust to align with the container's padding */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 10px 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.footer-link {
+  font-size: 14px;
+}
+
 .menu-link {
   display: flex;
   align-items: center;
+}
+
+.menu-link a {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.menu-link a:hover {
+  border: white solid 1px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
 p {
@@ -431,15 +592,14 @@ h4 {
 
 .slide-title {
   text-align: center;
-  font-size: 20px;
-  font-weight: 400;
-  font-family: Merriweather;
+  font-size: 28px;
+  font-weight: 800;
 }
 
 .slide-detail {
   text-align: center;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .slides {
@@ -449,11 +609,18 @@ h4 {
 }
 
 .slide {
-  width: 260px;
+  width: 60%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   padding: 10px;
+  gap: 10px;
+}
+
+.slide-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
 }
 
 .prev,
@@ -464,72 +631,86 @@ h4 {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  background-color: #2d7133;
   width: 43px;
   padding: 10px;
   border-radius: 999px;
 }
 
 .prev {
-  left: 35%;
+  left: 5%;
 }
 
 .next {
-  right: 35%;
+  right: 5%;
 }
 
 .bold {
   font-weight: bold;
 }
 
-.wider {
-  margin-left: 60px;
-  margin-right: 60px;
-  width: 360px;
-  font-weight: bold;
-}
-
-.slideshow-container-bakery {
+.slideshow-container-roti {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.slides-bakery {
+.slide-img-roti {
+  margin-bottom: 10px;
+}
+
+.slide-title-roti {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.slide-detail-roti {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.slides-roti {
   display: flex;
   overflow: hidden;
   justify-content: center;
 }
 
-.slide-bakery {
-  width: 260px;
+.slide-roti {
+  width: 60%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   padding: 10px;
+  gap: 10px;
 }
 
-.prev-bakery,
-.next-bakery {
+.slide-desc-roti {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.prev-roti,
+.next-roti {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
-  background-color: #ffffff;
   width: 43px;
   padding: 10px;
   border-radius: 999px;
 }
 
-.prev-bakery {
-  left: 35%;
+.prev-roti {
+  left: 5%;
 }
 
-.next-bakery {
-  right: 35%;
+.next-roti {
+  right: 5%;
 }
 @media only screen and (max-width: 1024px) {
   .prev {

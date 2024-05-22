@@ -1,6 +1,23 @@
-import { HERO_DATA } from './constants/hero-page.js';
 import { CAKES_DATA } from './constants/cakes-page.js';
-import { BAKERY_DATA } from './constants/bakery-page.js';
+import { ROTI_DATA } from './constants/cakes-page.js';
+
+console.log(ROTI_DATA)
+
+function showContent(contentId) {
+    // Hide all content
+    const contents = document.querySelectorAll('.content');
+    contents.forEach(content => {
+        content.style.display = 'none';
+        content.classList.remove('active');
+    });
+
+    // Show the selected content
+    const selectedContent = document.getElementById(contentId);
+    selectedContent.style.display = 'block';
+    selectedContent.classList.add('active');
+}
+
+window.showContent = showContent
 
 let currentSlide = 0;
 
@@ -17,47 +34,51 @@ setInterval(showNextSlide, 3000);
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const data = ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5", "Slide 6", "Slide 7", "Slide 8", "Slide 9"];
 let currentIndex = 0;
-let currentIndexBakery = 0;
+let currentIndexRoti = 0;
 
 
 function renderSlides() {
   const slidesContainer = document.querySelector('.slides');
   slidesContainer.innerHTML = '';
-  const slidesContainerBakery = document.querySelector('.slides-bakery');
+  const slidesContainerBakery = document.querySelector('.slides-roti');
   slidesContainerBakery.innerHTML = '';
 
-  for (let i = currentIndex; i < currentIndex + 5; i++) {
+  for (let i = currentIndex; i < currentIndex + 1; i++) {
     const slideIndex = i % CAKES_DATA.length;
     const slide = document.createElement('div');
     slide.classList.add('slide');
     slide.innerHTML = `
         <img src="${CAKES_DATA[slideIndex].image}" class="slide-img" />
     `;
-    if (i === currentIndex + 2) { // Add bold and wider class to the third slide
-      slide.classList.add('bold', 'wider');
+    if (i === currentIndex) { // Add bold and wider class to the third slide
+      slide.classList.add('bold');
       slide.innerHTML = `
+      <div class="slide-desc">
+      <h1 class="slide-title">${CAKES_DATA[slideIndex].title}</h1>
+      <p class="slide-detail">${CAKES_DATA[slideIndex].detail}</p>
+      </div>
       <img src="${CAKES_DATA[slideIndex].image}" class="slide-img" />
-      <h1 style="color:#2F7238" class="slide-title">${CAKES_DATA[slideIndex].title}</h1>
-      <p style="color:#2F7238" class="slide-detail">${CAKES_DATA[slideIndex].detail}</p>
   `;
     }
     slidesContainer.appendChild(slide);
   }
 
-  for (let i = currentIndexBakery; i < currentIndexBakery + 5; i++) {
-    const slideIndex = i % BAKERY_DATA.length;
+  for (let i = currentIndexRoti; i < currentIndexRoti + 1; i++) {
+    const slideIndex = i % ROTI_DATA.length;
     const slide = document.createElement('div');
-    slide.classList.add('slide-bakery');
+    slide.classList.add('slide-roti');
     slide.innerHTML = `
-        <img src="${BAKERY_DATA[slideIndex].image}" class="slide-img" />
+        <img src="${ROTI_DATA[slideIndex].image}" class="slide-img" />
     `;
-    if (i === currentIndexBakery + 2) { // Add bold and wider class to the third slide
+    if (i === currentIndexRoti) {
       slide.classList.add('bold', 'wider');
       slide.innerHTML = `
-      <img src="${BAKERY_DATA[slideIndex].image}" class="slide-img" />
-      <h1 style="color:#FFFFFF" class="slide-title">${BAKERY_DATA[slideIndex].title}</h1>
+      <div class="slide-desc">
+      <h1 class="slide-title">${ROTI_DATA[slideIndex].title}</h1>
+      <p class="slide-detail">${ROTI_DATA[slideIndex].detail}</p>
+      </div>
+      <img src="${ROTI_DATA[slideIndex].image}" class="slide-img" />
   `;
     }
     slidesContainerBakery.appendChild(slide);
@@ -75,19 +96,19 @@ function changeSlide(direction) {
 }
 
 function changeSlideBakery(direction) {
-  currentIndexBakery += direction;
-  if (currentIndexBakery < 0) {
-    currentIndexBakery = BAKERY_DATA.length - 1;
-  } else if (currentIndexBakery >= BAKERY_DATA.length) {
-    currentIndexBakery = 0;
+  currentIndexRoti += direction;
+  if (currentIndexRoti < 0) {
+    currentIndexRoti = ROTI_DATA.length - 1;
+  } else if (currentIndexRoti >= ROTI_DATA.length) {
+    currentIndexRoti = 0;
   }
   renderSlides();
 }
 
 document.querySelector('.prev').addEventListener('click', () => changeSlide(-1));
 document.querySelector('.next').addEventListener('click', () => changeSlide(1));
-document.querySelector('.prev-bakery').addEventListener('click', () => changeSlideBakery(-1));
-document.querySelector('.next-bakery').addEventListener('click', () => changeSlideBakery(1));
+document.querySelector('.prev-roti').addEventListener('click', () => changeSlideBakery(-1));
+document.querySelector('.next-roti').addEventListener('click', () => changeSlideBakery(1));
 
 renderSlides();
 
